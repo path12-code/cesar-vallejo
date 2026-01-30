@@ -229,3 +229,114 @@ const debouncedScroll = debounce(function() {
 }, 100);
 
 window.addEventListener('scroll', debouncedScroll);
+
+// ==================== THEME TOGGLE ====================
+// Inicializar tema desde localStorage o usar tema del sistema
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+    } else if (prefersDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateThemeIcon('dark');
+    }
+}
+
+// Cambiar entre modo claro y oscuro
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+}
+
+// Actualizar icono del botón de tema
+function updateThemeIcon(theme) {
+    const themeIcon = document.getElementById('theme-icon');
+    if (themeIcon) {
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+}
+
+// Inicializar tema al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    initTheme();
+    
+    // Event listener para el botón de tema
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // Animaciones de fade-in al hacer scroll
+    observeElements();
+});
+
+// ==================== SCROLL ANIMATIONS ====================
+function observeElements() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observar elementos que queremos animar
+    const elementsToAnimate = document.querySelectorAll('.obra-card, .poem-text-card, .masa-text-card');
+    elementsToAnimate.forEach(el => observer.observe(el));
+}
+
+// ==================== ACTIVE NAV LINK ====================
+// Marcar el link activo en la navegación
+function setActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', setActiveNavLink);
+
+// ==================== SMOOTH SCROLL ====================
+// Smooth scroll para enlaces internos
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// ==================== PREFERENCIA DE TEMA DEL SISTEMA ====================
+// Escuchar cambios en la preferencia de tema del sistema
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    // Solo aplicar si el usuario no ha guardado una preferencia
+    if (!localStorage.getItem('theme')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        updateThemeIcon(newTheme);
+    }
+});

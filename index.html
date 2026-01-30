@@ -3,6 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>César Vallejo - El Poeta Universal del Perú | Vida y Obra Completa</title>
+    <meta name="description" content="Descubre la vida y obra de César Vallejo, el poeta peruano más importante del siglo XX. Explora Los Heraldos Negros, Trilce, Poemas Humanos y su legado literario universal.">
+    <meta name="keywords" content="César Vallejo, poeta peruano, poesía latinoamericana, Los Heraldos Negros, Trilce, Poemas Humanos, literatura peruana, vanguardia literaria">
+    <meta name="author" content="Pedro Torres">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    
+    <!-- Open Graph Meta Tags (para redes sociales) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="César Vallejo - El Poeta Universal del Perú">
+    <meta property="og:description" content="Explora la vida y obra completa de César Vallejo, uno de los poetas más innovadores de la literatura universal.">
+    <meta property="og:image" content="https://elcomercio.pe/resizer/yMdhQ85bT9form8UYXVGuTowLzM=/900x565/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/2BGJCNUMZZCNZDI2TGCPSOHJAM.jpg">
+    <meta property="og:url" content="https://path12-code.github.io/cesar-vallejo/">
+    <meta property="og:site_name" content="César Vallejo - Portal Literario">
+    <meta property="og:locale" content="es_PE">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="César Vallejo - El Poeta Universal">
+    <meta name="twitter:description" content="Descubre la obra del poeta peruano más importante del siglo XX">
+    <meta name="twitter:image" content="https://elcomercio.pe/resizer/yMdhQ85bT9form8UYXVGuTowLzM=/900x565/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/2BGJCNUMZZCNZDI2TGCPSOHJAM.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://path12-code.github.io/cesar-vallejo/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#c5a47e">
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQVZZHJKFE"></script>
     <script>
@@ -12,27 +45,64 @@
     
       gtag('config', 'G-HQVZZHJKFE');
     </script>
-    <title>César Vallejo - El Poeta Universal</title>
+    
+    <!-- Preconnect para optimización -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "César Abraham Vallejo Mendoza",
+      "alternateName": "César Vallejo",
+      "birthDate": "1892-03-16",
+      "deathDate": "1938-04-15",
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Santiago de Chuco, Perú"
+      },
+      "deathPlace": {
+        "@type": "Place",
+        "name": "París, Francia"
+      },
+      "nationality": "Peruana",
+      "jobTitle": "Poeta y Escritor",
+      "description": "César Vallejo fue un poeta y escritor peruano, considerado uno de los mayores innovadores de la poesía del siglo XX.",
+      "knowsAbout": ["Poesía", "Literatura", "Vanguardia literaria"],
+      "url": "https://tusitio.com/",
+      "image": "https://elcomercio.pe/resizer/yMdhQ85bT9form8UYXVGuTowLzM=/900x565/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/2BGJCNUMZZCNZDI2TGCPSOHJAM.jpg",
+      "sameAs": [
+        "https://es.wikipedia.org/wiki/C%C3%A9sar_Vallejo",
+        "https://www.britannica.com/biography/Cesar-Vallejo"
+      ]
+    }
+    </script>
+    
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
         <div class="nav-container">
-            <a href="index.html" class="nav-brand">César Vallejo</a>
+            <a href="index.html" class="nav-brand" aria-label="Inicio - César Vallejo">César Vallejo</a>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link active">Inicio</a>
+                <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
                 <a href="heraldos.html" class="nav-link">Los Heraldos Negros</a>
                 <a href="trilce.html" class="nav-link">Trilce</a>
                 <a href="masa.html" class="nav-link">Masa</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema claro/oscuro">
+                    <span id="theme-icon">🌙</span>
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-bg-elements">
+    <header class="hero" role="banner">
+        <div class="hero-bg-elements" aria-hidden="true">
             <div class="bg-shape"></div>
             <div class="bg-border"></div>
         </div>
@@ -48,17 +118,19 @@
                     César Abraham Vallejo Mendoza fue un poeta y escritor peruano. Es considerado uno de los mayores innovadores de la poesía universal del siglo XX y el máximo exponente de las letras en su país. Su obra refleja el sufrimiento, la solidaridad y la búsqueda de justicia social.
                 </p>
                 <div class="hero-buttons">
-                    <a href="heraldos.html" class="btn-primary">Explorar Obra</a>
+                    <a href="heraldos.html" class="btn-primary" aria-label="Explorar la obra Los Heraldos Negros">Explorar Obra</a>
                 </div>
             </div>
             
             <div class="hero-image-container">
                 <div class="hero-image">
-                    <div class="image-overlay"></div>
-                    <img src="https://elcomercio.pe/resizer/yMdhQ85bT9form8UYXVGuTowLzM=/900x565/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/2BGJCNUMZZCNZDI2TGCPSOHJAM.jpg" alt="César Vallejo Portrait">
+                    <div class="image-overlay" aria-hidden="true"></div>
+                    <img src="https://elcomercio.pe/resizer/yMdhQ85bT9form8UYXVGuTowLzM=/900x565/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/2BGJCNUMZZCNZDI2TGCPSOHJAM.jpg" 
+                         alt="Retrato histórico de César Vallejo, poeta peruano del siglo XX"
+                         loading="eager">
                 </div>
-                <div class="hero-blur"></div>
-                <div class="hero-vertical-text">
+                <div class="hero-blur" aria-hidden="true"></div>
+                <div class="hero-vertical-text" aria-hidden="true">
                     <span>SANTIAGO DE CHUCO</span>
                     <span>PARIS</span>
                 </div>
@@ -67,49 +139,61 @@
     </header>
 
     <!-- Obras Principales -->
-    <section class="obras-section">
+    <section class="obras-section" aria-labelledby="obras-title">
         <div class="container">
-            <h2 class="section-title">Obras Principales</h2>
+            <h2 id="obras-title" class="section-title">Obras Principales</h2>
             
             <div class="obras-grid">
-                <a href="heraldos.html" class="obra-card">
-                    <div class="obra-image">
-                        <img src="https://udocz-cdn-hop.b-cdn.net/documents_html/562866-8bc1d4722727440fb53da9248fe5e0d3/bg1.jpg" alt="Los Heraldos Negros">
-                    </div>
-                    <h3 class="obra-title">Los Heraldos Negros</h3>
-                    <p class="obra-year">1919</p>
-                    <p class="obra-description">
-                        El inicio de una voz única que explora el dolor existencial y la incertidumbre humana.
-                    </p>
-                </a>
+                <article class="obra-card">
+                    <a href="heraldos.html" aria-label="Leer más sobre Los Heraldos Negros">
+                        <div class="obra-image">
+                            <img src="https://udocz-cdn-hop.b-cdn.net/documents_html/562866-8bc1d4722727440fb53da9248fe5e0d3/bg1.jpg" 
+                                 alt="Portada del libro Los Heraldos Negros de César Vallejo, publicado en 1919"
+                                 loading="lazy">
+                        </div>
+                        <h3 class="obra-title">Los Heraldos Negros</h3>
+                        <p class="obra-year">1919</p>
+                        <p class="obra-description">
+                            El inicio de una voz única que explora el dolor existencial y la incertidumbre humana.
+                        </p>
+                    </a>
+                </article>
 
-                <a href="trilce.html" class="obra-card">
-                    <div class="obra-image">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEho76-zWAPK9F-6V7WSG-YBo1J_8tZw-EV1N7pNyFdUWJ9pPTC6h2UR7DZvWt2lPCzr-QymzubO2RdhBmRLGh57WdNie3qYVWIzR-Sfm4-Hzz0dP-jGAp8UoxDriKWQo-nYBdNDgg/s1600/trilce-primera-edicion.jpg" alt="Trilce">
-                    </div>
-                    <h3 class="obra-title">Trilce</h3>
-                    <p class="obra-year">1922</p>
-                    <p class="obra-description">
-                        Una revolución vanguardista que rompe las barreras del lenguaje y la forma.
-                    </p>
-                </a>
+                <article class="obra-card">
+                    <a href="trilce.html" aria-label="Leer más sobre Trilce">
+                        <div class="obra-image">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEho76-zWAPK9F-6V7WSG-YBo1J_8tZw-EV1N7pNyFdUWJ9pPTC6h2UR7DZvWt2lPCzr-QymzubO2RdhBmRLGh57WdNie3qYVWIzR-Sfm4-Hzz0dP-jGAp8UoxDriKWQo-nYBdNDgg/s1600/trilce-primera-edicion.jpg" 
+                                 alt="Primera edición del poemario Trilce de César Vallejo, 1922"
+                                 loading="lazy">
+                        </div>
+                        <h3 class="obra-title">Trilce</h3>
+                        <p class="obra-year">1922</p>
+                        <p class="obra-description">
+                            Una revolución vanguardista que rompe las barreras del lenguaje y la forma.
+                        </p>
+                    </a>
+                </article>
 
-                <a href="masa.html" class="obra-card">
-                    <div class="obra-image">
-                        <img src="https://stockenlima.wordpress.com/wp-content/uploads/2016/08/imagen003.jpg" alt="Masa">
-                    </div>
-                    <h3 class="obra-title">Masa</h3>
-                    <p class="obra-year">1939</p>
-                    <p class="obra-description">
-                        Un canto a la solidaridad humana y la esperanza colectiva frente a la muerte.
-                    </p>
-                </a>
+                <article class="obra-card">
+                    <a href="masa.html" aria-label="Leer más sobre Masa">
+                        <div class="obra-image">
+                            <img src="https://stockenlima.wordpress.com/wp-content/uploads/2016/08/imagen003.jpg" 
+                                 alt="Manuscrito del poema Masa de César Vallejo"
+                                 loading="lazy">
+                        </div>
+                        <h3 class="obra-title">Masa</h3>
+                        <p class="obra-year">1939</p>
+                        <p class="obra-description">
+                            Un canto a la solidaridad humana y la esperanza colectiva frente a la muerte.
+                        </p>
+                    </a>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-container">
             <div class="footer-col">
                 <div class="footer-brand">César Vallejo</div>
@@ -120,28 +204,32 @@
             
             <div class="footer-col">
                 <h4 class="footer-title">Navegación</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="heraldos.html">Los Heraldos Negros</a></li>
-                    <li><a href="trilce.html">Trilce</a></li>
-                    <li><a href="masa.html">Masa</a></li>
-                </ul>
+                <nav aria-label="Enlaces del pie de página">
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="heraldos.html">Los Heraldos Negros</a></li>
+                        <li><a href="trilce.html">Trilce</a></li>
+                        <li><a href="masa.html">Masa</a></li>
+                    </ul>
+                </nav>
             </div>
 
             <div class="footer-col">
                 <h4 class="footer-title">Recursos</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Biografía Completa</a></li>
-                    <li><a href="#">Cronología</a></li>
-                    <li><a href="#">Bibliografía</a></li>
+                    <li><a href="#" aria-label="Próximamente: Biografía completa">Biografía Completa</a></li>
+                    <li><a href="#" aria-label="Próximamente: Cronología">Cronología</a></li>
+                    <li><a href="#" aria-label="Próximamente: Bibliografía">Bibliografía</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <div class="footer-stamp">
-                    <img src="https://elcomercio.pe/resizer/yMdhQ85bT9form8UYXVGuTowLzM=/900x565/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/2BGJCNUMZZCNZDI2TGCPSOHJAM.jpg" alt="Vallejo Stamp">
+                    <img src="https://elcomercio.pe/resizer/yMdhQ85bT9form8UYXVGuTowLzM=/900x565/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/2BGJCNUMZZCNZDI2TGCPSOHJAM.jpg" 
+                         alt="Sello conmemorativo de César Vallejo"
+                         loading="lazy">
                 </div>
-                <p class="footer-copyright">© 2026 Proyecto Vallejo. Diseñado con respeto y admiración. por Pedro Torres</p>
+                <p class="footer-copyright">© 2026 Proyecto Vallejo. Diseñado con respeto y admiración por Pedro Torres</p>
             </div>
         </div>
     </footer>

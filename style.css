@@ -17,6 +17,7 @@
 
 /* ==================== VARIABLES ==================== */
 :root {
+    /* Modo Claro (por defecto) */
     --bg-dark: #1a1a1a;
     --text-light: #e5e5e5;
     --accent-gold: #c5a47e;
@@ -25,6 +26,40 @@
     --soft-white: #f3f4f6;
     --bg-light: #F5F5F0;
     --bg-beige: #e8e6e1;
+    
+    /* Variables de tema claro */
+    --bg-primary: #F5F5F0;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e8e6e1;
+    --text-primary: #2d2d2d;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --border-color: #e5e5e5;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --navbar-bg: #1a1a1a;
+    --navbar-text: #ffffff;
+    --footer-bg: #1a1a1a;
+}
+
+/* Modo Oscuro */
+[data-theme="dark"] {
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #262626;
+    --text-primary: #e5e5e5;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --border-color: #333333;
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-medium: rgba(0, 0, 0, 0.5);
+    --navbar-bg: #000000;
+    --navbar-text: #ffffff;
+    --footer-bg: #000000;
+    --bg-light: #0f0f0f;
+    --bg-beige: #1a1a1a;
+    --charcoal: #e5e5e5;
+    --soft-white: #2d2d2d;
 }
 
 /* ==================== RESET ==================== */
@@ -36,10 +71,11 @@
 
 body {
     font-family: 'AlibabaSans-Regular', sans-serif;
-    background-color: var(--bg-light);
-    color: var(--charcoal);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -71,9 +107,10 @@ img {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: var(--bg-dark);
-    border-bottom: 1px solid #333;
+    background-color: var(--navbar-bg);
+    border-bottom: 1px solid var(--border-color);
     padding: 1.5rem 5rem;
+    transition: background-color 0.3s ease;
 }
 
 .nav-container {
@@ -87,7 +124,7 @@ img {
 .nav-brand {
     font-family: 'NotoSerifCJKsc-Bold', serif;
     font-size: 1.5rem;
-    color: white;
+    color: var(--navbar-text);
     letter-spacing: 0.2em;
     text-transform: uppercase;
     transition: color 0.3s ease;
@@ -100,10 +137,11 @@ img {
 .nav-menu {
     display: flex;
     gap: 3rem;
+    align-items: center;
 }
 
 .nav-link {
-    color: white;
+    color: var(--navbar-text);
     font-size: 0.875rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -133,17 +171,41 @@ img {
     width: 100%;
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--navbar-text);
+    color: var(--navbar-text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--bg-dark);
+    transform: rotate(180deg);
+}
+
 /* ==================== HERO SECTION ==================== */
 .hero {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    background-color: var(--bg-dark);
-    color: white;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     overflow: hidden;
     margin-top: 5rem;
+    transition: background-color 0.3s ease;
 }
 
 .hero-bg-elements {
@@ -161,7 +223,8 @@ img {
     right: 0;
     width: 50%;
     height: 100%;
-    background-color: #1f1f1f;
+    background-color: var(--bg-tertiary);
+    transition: background-color 0.3s ease;
 }
 
 .bg-border {
@@ -170,7 +233,7 @@ img {
     right: 5rem;
     width: 600px;
     height: 800px;
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
     opacity: 0.5;
 }
 
@@ -205,6 +268,7 @@ img {
     font-size: 5rem;
     line-height: 1.1;
     margin-bottom: 2rem;
+    color: var(--text-primary);
 }
 
 .hero-subtitle {
@@ -217,7 +281,7 @@ img {
     font-family: 'NotoSerifCJKsc-Regular', serif;
     font-size: 1.25rem;
     line-height: 1.8;
-    color: #9ca3af;
+    color: var(--text-muted);
     margin-bottom: 3rem;
     max-width: 80%;
 }
@@ -229,19 +293,21 @@ img {
 
 .btn-primary {
     padding: 0.875rem 2rem;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
     text-transform: uppercase;
     font-size: 0.875rem;
     letter-spacing: 0.2em;
     transition: all 0.3s ease;
     cursor: pointer;
     display: inline-block;
+    background-color: transparent;
 }
 
 .btn-primary:hover {
-    background-color: white;
-    color: black;
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--bg-dark);
 }
 
 .hero-image-container {
@@ -258,7 +324,7 @@ img {
     width: 500px;
     height: 700px;
     overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 25px 50px -12px var(--shadow-medium);
     z-index: 10;
 }
 
@@ -315,7 +381,8 @@ img {
 .obras-section {
     width: 100%;
     padding: 8rem 5rem;
-    background-color: var(--bg-light);
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease;
 }
 
 .container {
@@ -328,7 +395,7 @@ img {
     font-size: 4rem;
     text-align: center;
     margin-bottom: 5rem;
-    color: var(--bg-dark);
+    color: var(--text-primary);
 }
 
 .obras-grid {
@@ -338,16 +405,17 @@ img {
 }
 
 .obra-card {
-    background-color: white;
+    background-color: var(--bg-secondary);
     padding: 2rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 15px -3px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
+    border: 1px solid var(--border-color);
 }
 
 .obra-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px var(--shadow-medium);
 }
 
 .obra-image {
@@ -371,17 +439,17 @@ img {
     font-family: 'NotoSerifCJKsc-Bold', serif;
     font-size: 1.875rem;
     margin-bottom: 1rem;
-    color: var(--bg-dark);
+    color: var(--text-primary);
 }
 
 .obra-year {
     font-family: 'NotoSerifCJKsc-Regular', serif;
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 1rem;
 }
 
 .obra-description {
-    color: #374151;
+    color: var(--text-secondary);
     line-height: 1.7;
 }
 
@@ -389,8 +457,9 @@ img {
 .poem-section {
     width: 100%;
     padding: 8rem 5rem;
-    background-color: var(--bg-light);
+    background-color: var(--bg-primary);
     margin-top: 5rem;
+    transition: background-color 0.3s ease;
 }
 
 .poem-header {
@@ -409,7 +478,7 @@ img {
     position: absolute;
     font-size: 9rem;
     font-weight: bold;
-    color: #e5e5e5;
+    color: var(--border-color);
     top: -4rem;
     left: -1rem;
     z-index: 0;
@@ -418,202 +487,188 @@ img {
 .poem-main-title {
     font-family: 'NotoSerifCJKsc-Bold', serif;
     font-size: 4rem;
-    color: var(--bg-dark);
+    line-height: 1.1;
     position: relative;
     z-index: 10;
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    color: var(--text-primary);
 }
 
 .title-line {
-    width: 5rem;
-    height: 2px;
+    width: 6rem;
+    height: 4px;
     background-color: var(--accent-gold);
+    margin-top: 2rem;
 }
 
 .poem-header-right {
     width: 66.666%;
-    padding-left: 3rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
 }
 
 .poem-intro {
     font-family: 'NotoSerifCJKsc-Regular', serif;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.8;
-    color: #4b5563;
-    max-width: 75%;
+    color: var(--text-secondary);
 }
 
-/* Poem Content Grid */
 .poem-content-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
 }
 
 .poem-image-container {
     position: relative;
+    height: 700px;
 }
 
 .poem-image {
     width: 100%;
-    height: 600px;
+    height: 100%;
     overflow: hidden;
-    background-color: #d1d5db;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     position: relative;
+    z-index: 10;
+    box-shadow: 0 25px 50px -12px var(--shadow-medium);
 }
 
 .poem-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s ease;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
 }
 
-.poem-image-container:hover .poem-image img {
-    transform: scale(1.05);
+.poem-image:hover img {
+    filter: grayscale(0%);
 }
 
 .image-dark-overlay {
     position: absolute;
     inset: 0;
-    background-color: var(--bg-dark);
-    opacity: 0.2;
-    transition: opacity 0.5s ease;
-}
-
-.poem-image-container:hover .image-dark-overlay {
-    opacity: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    z-index: 10;
 }
 
 .image-border-decoration {
     position: absolute;
-    bottom: -1.5rem;
+    top: -1.5rem;
     right: -1.5rem;
     width: 100%;
     height: 100%;
-    border: 1px solid var(--accent-gold);
-    z-index: -1;
+    border: 2px solid var(--accent-gold);
+    z-index: 0;
 }
 
 .poem-text-card {
-    background-color: white;
-    padding: 4rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-secondary);
+    padding: 3rem;
+    box-shadow: 0 10px 15px -3px var(--shadow-light);
     position: relative;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border-left: 4px solid var(--accent-gold);
+    transition: background-color 0.3s ease;
 }
 
 .quote-mark {
-    font-family: 'NotoSerifCJKsc-Bold', serif;
-    font-size: 6rem;
-    color: var(--accent-gold);
-    opacity: 0.3;
-    line-height: 1;
     position: absolute;
-    top: 2.5rem;
-    left: 2.5rem;
+    top: 1rem;
+    left: 1rem;
+    font-size: 8rem;
+    color: var(--accent-gold);
+    opacity: 0.1;
+    font-family: 'NotoSerifCJKsc-Bold', serif;
+    line-height: 1;
 }
 
 .poem-verses {
-    text-align: center;
-    margin: 2rem 0;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 3rem;
 }
 
 .verse-text {
     font-family: 'NotoSerifCJKsc-Regular', serif;
-    font-size: 1.5rem;
-    font-style: italic;
-    color: #333;
+    font-size: 1.125rem;
     line-height: 2;
-    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-style: italic;
 }
 
 .poem-analysis {
-    margin-top: 2rem;
-    border-top: 1px solid #f3f4f6;
+    border-top: 1px solid var(--border-color);
     padding-top: 2rem;
 }
 
 .analysis-title {
-    font-size: 0.875rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    font-family: 'NotoSerifCJKsc-Bold', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--accent-gold);
-    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 1rem;
 }
 
 .analysis-text {
-    color: #6b7280;
-    line-height: 1.7;
-    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
 }
 
-/* ==================== TRILCE DARK SECTION ==================== */
-.dark-section {
-    background-color: var(--bg-dark);
-    color: white;
-    position: relative;
+/* ==================== TRILCE SECTION ==================== */
+.trilce-section {
+    background-color: var(--bg-secondary);
+    transition: background-color 0.3s ease;
 }
 
-.trilce-bg-pattern {
-    position: absolute;
-    top: 0;
-    left: 0;
+.trilce-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+}
+
+.trilce-title-group h1 {
+    font-family: 'NotoSerifCJKsc-Bold', serif;
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.trilce-subtitle {
+    color: var(--text-muted);
+    font-size: 1.125rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.trilce-year {
+    font-size: 8rem;
+    font-weight: bold;
+    color: var(--border-color);
+    opacity: 0.3;
+}
+
+.section-divider {
     width: 100%;
-    height: 100%;
-    opacity: 0.05;
-    pointer-events: none;
-    overflow: hidden;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+    margin: 3rem 0;
 }
 
-.pattern-circle {
-    position: absolute;
-    border: 1px solid white;
-    border-radius: 50%;
+.trilce-intro {
+    max-width: 48rem;
+    margin: 0 auto 5rem;
+    text-align: center;
 }
 
-.pattern-1 {
-    top: -10%;
-    left: -10%;
-    width: 50%;
-    height: 50%;
-    transform: rotate(45deg);
-}
-
-.pattern-2 {
-    bottom: -10%;
-    right: -10%;
-    width: 60%;
-    height: 60%;
-    transform: rotate(-12deg);
-}
-
-.poem-header.reverse {
-    flex-direction: row-reverse;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.light-text {
-    color: #9ca3af;
-}
-
-.poem-number.dark {
-    color: #333;
-}
-
-.poem-main-title.light {
-    color: white;
+.trilce-intro-text {
+    font-family: 'NotoSerifCJKsc-Regular', serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
 }
 
 .ml-auto {
@@ -628,11 +683,12 @@ img {
 }
 
 .trilce-text-card {
-    background-color: #262626;
+    background-color: var(--bg-tertiary);
     padding: 4rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 50px -12px var(--shadow-medium);
     position: relative;
     border-left: 4px solid var(--accent-gold);
+    transition: background-color 0.3s ease;
 }
 
 .trilce-poem-title {
@@ -644,7 +700,7 @@ img {
 
 .trilce-verses {
     font-family: monospace;
-    color: #d1d5db;
+    color: var(--text-secondary);
     font-size: 1.125rem;
     line-height: 2;
     letter-spacing: 0.05em;
@@ -663,7 +719,7 @@ img {
 
 .footer-line {
     height: 1px;
-    background-color: #4b5563;
+    background-color: var(--border-color);
     flex-grow: 1;
 }
 
@@ -671,7 +727,7 @@ img {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: #6b7280;
+    color: var(--text-muted);
 }
 
 .trilce-image-container {
@@ -685,7 +741,7 @@ img {
     left: 1rem;
     width: 100%;
     height: 100%;
-    border: 2px dashed #4b5563;
+    border: 2px dashed var(--border-color);
     z-index: 0;
 }
 
@@ -695,7 +751,7 @@ img {
     overflow: hidden;
     position: relative;
     z-index: 10;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 25px 50px -12px var(--shadow-medium);
     filter: grayscale(100%);
     transition: filter 0.5s ease;
 }
@@ -732,11 +788,13 @@ img {
 
 /* ==================== MASA SECTION ==================== */
 .masa-section {
-    background-color: var(--bg-beige);
+    background-color: var(--bg-tertiary);
+    transition: background-color 0.3s ease;
 }
 
 .poem-number.masa-number {
-    color: #d4d1ca;
+    color: var(--border-color);
+    opacity: 0.5;
 }
 
 .masa-content {
@@ -751,7 +809,7 @@ img {
     height: 500px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 25px -5px var(--shadow-light);
     border-radius: 2px;
     margin-bottom: 3rem;
 }
@@ -811,9 +869,11 @@ img {
 }
 
 .masa-text-card {
-    background-color: white;
+    background-color: var(--bg-secondary);
     padding: 2.5rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 0 var(--shadow-light);
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .masa-text-card:first-child {
@@ -824,29 +884,30 @@ img {
     font-family: 'NotoSerifCJKsc-Bold', serif;
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
-    color: var(--bg-dark);
+    color: var(--text-primary);
 }
 
 .masa-verse {
     font-family: 'NotoSerifCJKsc-Regular', serif;
-    color: #374151;
+    color: var(--text-secondary);
     font-style: italic;
     line-height: 2;
     font-size: 1.125rem;
 }
 
 .masa-analysis {
-    color: #4b5563;
+    color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: 1.5rem;
 }
 
 /* ==================== FOOTER ==================== */
 .footer {
-    background-color: var(--bg-dark);
+    background-color: var(--footer-bg);
     color: white;
     padding: 4rem 5rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
 }
 
 .footer-container {
@@ -1006,6 +1067,12 @@ img {
     
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
 }
 
